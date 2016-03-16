@@ -60,6 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+<<<<<<< HEAD
 #my define files
 *.gz
 *.rpm
+=======
+>>>>>>> 97bb7cd7a0f9de2137c1747788558ab773d4e446
