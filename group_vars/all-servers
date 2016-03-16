@@ -1,0 +1,18 @@
+#配置service.xml
+http_port: 80
+https_port: 443
+
+#配置启动脚本参数
+java_opts: '"-server -Xms1024m -Xmx1024m -XX:PermSize=512m -XX:MaxPermSize=512m"'
+
+#配置tomcat-user.xml
+admin_username: root
+admin_password: root12300.
+
+#配置sshd_config
+sshd_auth: 'no'
+sshd_dns: 'no'
+sshd_port: 22
+
+#所有源码包和rpm包的存放路径
+dest_dir: '/usr/local/src'

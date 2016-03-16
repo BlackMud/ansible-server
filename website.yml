@@ -1,0 +1,7 @@
+---
+- hosts: test-servers
+  gather_facts: False
+  remote_user: root
+
+  roles:
+    - tomcat

@@ -1,0 +1,20 @@
+---
+- name: check openssh 
+  shell: rpm -qa|grep -i openssh
+  register: outinfo
+
+- name:  Conditional task
+  debug:  msg='openssh已经安装'
+  when: outinfo|changed
+  
+- name: install openssh
+  yum: pkg=openssh state=present
+  tags: sshd
+  when: outinfo|failed
+
+- name: config sshd server
+  template: src=sshd_config dest=/etc/ssh/
+  notify: restart sshd 
+
+- name: wait for sshd to start
+  wait_for: port={{sshd_port}}

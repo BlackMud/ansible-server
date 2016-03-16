@@ -1,0 +1,18 @@
+[test-servers]
+test-server1   ansible_ssh_host=192.168.0.128
+test-server2   ansible_ssh_host=192.168.0.129
+
+[web-servers]
+guanwang_server		ansible_ssh_host=192.168.0.45	
+iecp_web_server		ansible_ssh_host=192.168.0.198	
+imss_server		ansible_ssh_host=192.168.0.224	
+osms_server		ansible_ssh_host=192.168.0.226	
+olsm_server		ansible_ssh_host=192.168.0.228	
+imss_wap_server		ansible_ssh_host=192.168.0.193	
+wap_server		ansible_ssh_host=192.168.0.164	
+boss_server		ansible_ssh_host=192.168.0.215	
+img_ngx_Server		ansible_ssh_host=192.168.0.238	
+
+[all-servers:children]
+test-servers
+web-servers

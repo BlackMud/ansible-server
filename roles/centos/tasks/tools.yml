@@ -1,0 +1,20 @@
+---
+- name: install environ
+  tags: tools
+  yum: name={{item}} state=latest
+  with_items:
+    - apr-devel
+    - openssl-devel
+    - make
+    - gcc
+    - gcc-c++
+    - tree
+    - autoconf
+    - automake
+    - zlib-devel
+    - python
+    - perl
+    - glibc
+    - unzip
+    - gzip
+    - crontabs

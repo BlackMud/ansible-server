@@ -1,0 +1,32 @@
+---
+- name: config path environ
+  copy: src=profile dest=/etc/ mode=0644
+  tags: setpath
+
+- name: command profile
+  shell: sh /etc/profile
+  tags: setpath
+
+- name: config tomcat start scripts
+  copy: src=tomcat dest=/etc/init.d/ mode=0755
+  notify: restart tomcat
+  tags: tomcat-conf
+
+- name: config tomcat started srcirpt environ
+  template: src=catalina.sh dest=/usr/local/tomcat/bin/
+  notify: restart tomcat
+  tags: tomcat-conf
+
+- name: config tomcat server.xml
+  template: src=server.xml dest=/usr/local/tomcat/conf/
+  notify: restart tomcat
+  tags: tomcat-conf
+
+- name: config tomcat-user.xml
+  template: src=tomcat-users.xml dest=/usr/local/tomcat/conf
+  notify: restart tomcat
+  tags: tomcat-conf
+
+- name: wait for tomcat to start
+  wait_for: port={{http_port}} delay=15
+  tags: tomcat-conf
